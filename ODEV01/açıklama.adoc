@@ -1,0 +1,38 @@
+Selamlar,
+
+Bu ders için oluşturuduğum github reposu:
+https://github.com/EnesKy/DesignPatterns
+
+Kalıtım diyince aklıma ilk araba geliyor :)
+Lisansta ilk gördüğümüz örnekten dolayı olsa gerek.
+
+Ben de araçlar ile ilgil bir yapı kurayım dedim.
+Oluşturduğum class'lar:
+Vehicle, 
+Car, 
+Commercial(Ticari Araba), 
+Aircraft (Hava Taşıtları),
+Marine (Deniz Taşıtları),
+Motocycle(Motosiklet),
+Passenger(Yolcu)
+şeklindedir.
+
+image:vehicle_diagram.png[]
+
+Vehicle class'ı bu yapıdaki base class'tır.
+Car, Aircraft, Marine, Motocycle bunların hepsi bir taşıt, bir araçtır. Bu sebeple Vehicle'ı extend ederler.
+
+Bu araçları bir sürücü kullanır ve çoğunlukla raçlarda sürücü dışında da yolcu bulunmaktadır. Bu yolcuları tanımlamak için de Passenger class'ı oluşturulmuştur.
+
+Commercial ise Car class'ını extend eder çünkü kamyon, tır, otobüs, minibüs gibi ticari araçları temsilen oluşturulmuştur ve bu araçların hepsi aslında bir arabadır.
+
+Agression'da nesneler birbirinden bağımsızdır.
+Bazı uçaklarda hostes bulunmayabilir.
+Bu sebeple aircraft içerisinde iki ayrı constructor bulunuyor.
+Hostes bulunan ve hostes bulunmayan.
+
+Compositon'da nesneler birbirine bağımlıdır.
+Her taşıtın kullanılabilmesi için bir sürücüye ihtiyacı vardır.
+Bu sebeple Vehicle'ın sürücü nesnesi olmadan oluşturulamaz.
+
+Ödev notlarında bulunan tüm maddeler kodda bulunmaktadır.

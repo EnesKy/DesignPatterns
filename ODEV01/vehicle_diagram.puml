@@ -27,6 +27,7 @@ class ODEV01.Aircraft {
 ~ String vehicleType
 ~ Passenger hostes
 + <<Create>> Aircraft(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>)
++ <<Create>> Aircraft(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>,Passenger)
 ~ String pureDefinition()
 }
 class ODEV01.Marine {
@@ -45,6 +46,7 @@ class ODEV01.Passenger {
 ~ String surname
 ~ Boolean haveLicence
 ~ String licenceCapability
++ <<Create>> Passenger()
 + <<Create>> Passenger(String,String)
 + <<Create>> Passenger(String,String,Boolean,String)
 ~ <<Create>> Passenger(Passenger)
