@@ -1,0 +1,107 @@
+@startuml
+class ODEV01.Car {
+~ String vehicleType
+~ String carType
+~ String doorCount
+~ String transmissionType
+~ String kilometer
+~ Stack<String> accidentReports
+~ Map<String,List<String>> changedParts
++ <<Create>> Car(String,String,String,String,String,int,int,String,String,String,String,String,Passenger,ArrayList<Passenger>)
++ String toString()
+~ String pureDefinition()
++ String definition()
++ String privateDefinition()
++ String getVehicleType()
++ void setVehicleType(String)
++ String getCarType()
++ void setCarType(String)
++ String getDoorCount()
++ void setDoorCount(String)
++ String getTransmissionType()
++ void setTransmissionType(String)
++ String getKilometer()
++ void setKilometer(String)
+}
+class ODEV01.Aircraft {
+~ String vehicleType
+~ Passenger hostes
++ <<Create>> Aircraft(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>)
+~ String pureDefinition()
+}
+class ODEV01.Marine {
+~ String vehicleType
++ <<Create>> Marine(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>)
+~ String pureDefinition()
+}
+class ODEV01.GenericClass {
+- T t
++ T get()
++ void set(T)
++ {static} boolean isEqual(GenericClass<T>,GenericClass<T>)
+}
+class ODEV01.Passenger {
+~ String name
+~ String surname
+~ Boolean haveLicence
+~ String licenceCapability
++ <<Create>> Passenger(String,String)
++ <<Create>> Passenger(String,String,Boolean,String)
+~ <<Create>> Passenger(Passenger)
++ String getName()
++ void setName(String)
++ String getSurname()
++ void setSurname(String)
++ Boolean getHaveLicence()
++ void setHaveLicence(Boolean)
++ String getLicenceCapability()
++ void setLicenceCapability(String)
+}
+class ODEV01.Motorcycle {
+~ String vehicleType
+~ int wheelCount
++ <<Create>> Motorcycle(String,String,String,String,String,int,int,String,String,int,Passenger,ArrayList<Passenger>)
+~ String pureDefinition()
+}
+class ODEV01.Main {
+~ {static} ArrayList<Vehicle> vehicleList
+~ {static} ArrayList<Passenger> passengerList1
+~ {static} ArrayList<Passenger> passengerList2
+~ {static} ArrayList<Passenger> passengerList3
++ {static} void main(String[])
++ {static} void fillLists()
+}
+class ODEV01.Commercial {
+~ String carType
++ <<Create>> Commercial(String,String,String,String,String,int,int,String,String,String,String,String,Passenger,ArrayList<Passenger>)
+}
+abstract class ODEV01.Vehicle {
+~ String type
+~ String brand
+~ String model
+~ String color
+~ String productionYear
+~ String engineName
+~ int enginePower
+~ int engineCapacity
+~ String fuelType
+~ Passenger driver
+~ ArrayList<Passenger> passengerList
++ <<Create>> Vehicle(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>)
+~ {abstract}String pureDefinition()
+- String privateDefinition()
++ void setType(String)
+}
+interface ODEV01.Vehicle.VehicleFuncs {
+~ String definition()
+}
+
+
+ODEV01.VehicleFuncs <|.. ODEV01.Car
+ODEV01.Vehicle <|-- ODEV01.Car
+ODEV01.Vehicle <|-- ODEV01.Aircraft
+ODEV01.Vehicle <|-- ODEV01.Marine
+ODEV01.Vehicle <|-- ODEV01.Motorcycle
+ODEV01.Car <|-- ODEV01.Commercial
+ODEV01.Vehicle +.. ODEV01.Vehicle.VehicleFuncs
+@enduml

@@ -4,18 +4,29 @@ public class Passenger {
 
     String name;
     String surname;
-    String age;
-    String gender;
-    Boolean haveLicence;
+    Boolean haveLicence = false;
     String licenceCapability; //Car, Motocycle, Marine, Aircraft
 
-    public Passenger(String name, String surname, String age, String gender, Boolean haveLicence, String licenceCapability) {
+    public Passenger(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
-        this.gender = gender;
+        this.haveLicence = false;
+    }
+
+    //Compiler-generated default constructor
+    public Passenger(String name, String surname, Boolean haveLicence, String licenceCapability) {
+        this.name = name;
+        this.surname = surname;
         this.haveLicence = haveLicence;
         this.licenceCapability = licenceCapability;
+    }
+
+    //Copy constructor
+    Passenger(Passenger p) {
+        name = p.name;
+        surname = p.surname;
+        haveLicence = p.haveLicence;
+        licenceCapability = p.licenceCapability;
     }
 
     public String getName() {
@@ -34,22 +45,6 @@ public class Passenger {
         this.surname = surname;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public Boolean getHaveLicence() {
         return haveLicence;
     }
@@ -65,4 +60,5 @@ public class Passenger {
     public void setLicenceCapability(String licenceCapability) {
         this.licenceCapability = licenceCapability;
     }
+
 }

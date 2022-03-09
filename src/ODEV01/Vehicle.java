@@ -1,10 +1,12 @@
 package ODEV01;
 
+import java.util.ArrayList;
+
 /**
  * Created by Enes Kamil YILMAZ on 08/03/2022
  */
 
-public class Vehicle { //Vasıta
+public abstract class Vehicle { //Vasıta
 
     String type;
     String brand;
@@ -15,10 +17,23 @@ public class Vehicle { //Vasıta
     int enginePower;
     int engineCapacity;
     String fuelType;
+    Passenger driver; // Aggregation
+    ArrayList<Passenger> passengerList;
+
+    abstract String pureDefinition(); //pure virtual func
+
+    interface VehicleFuncs { //virtual func
+        String definition();
+    }
+
+    private String privateDefinition() {
+        return "Private info";
+    }
 
     public Vehicle(
             String brand, String color, String model, String productionYear,
-            String engineName, int enginePower, int engineCapacity, String fuelType
+            String engineName, int enginePower, int engineCapacity, String fuelType,
+            Passenger driver, ArrayList<Passenger> passengerList
     ) {
         this.brand = brand;
         this.color = color;
@@ -28,78 +43,12 @@ public class Vehicle { //Vasıta
         this.enginePower = enginePower;
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getProductionYear() {
-        return productionYear;
-    }
-
-    public void setProductionYear(String productionYear) {
-        this.productionYear = productionYear;
-    }
-
-    public String getEngineName() {
-        return engineName;
-    }
-
-    public void setEngineName(String engineName) {
-        this.engineName = engineName;
-    }
-
-    public int getEnginePower() {
-        return enginePower;
-    }
-
-    public void setEnginePower(int enginePower) {
-        this.enginePower = enginePower;
-    }
-
-    public int getEngineCapacity() {
-        return engineCapacity;
-    }
-
-    public void setEngineCapacity(int engineCapacity) {
-        this.engineCapacity = engineCapacity;
-    }
-
-    public String getType() {
-        return type;
+        this.driver = driver;
+        this.passengerList = passengerList;
     }
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getFuelType() {
-        return fuelType;
-    }
-
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
     }
 
 }
