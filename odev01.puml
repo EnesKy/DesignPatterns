@@ -7,11 +7,12 @@ class ODEV01.Car {
 ~ String kilometer
 ~ Stack<String> accidentReports
 ~ Map<String,List<String>> changedParts
-+ <<Create>> Car(String,String,String,String,String,int,int,String,String,String,String,String,Passenger,ArrayList<Passenger>)
++ <<Create>> Car(String,String,String,String,String,int,int,String,String,String,String,String,Person,ArrayList<Person>)
 + String toString()
 ~ String pureDefinition()
 + String definition()
 + String privateDefinition()
+~ String publicDefinition()
 + String getVehicleType()
 + void setVehicleType(String)
 + String getCarType()
@@ -25,31 +26,27 @@ class ODEV01.Car {
 }
 class ODEV01.Aircraft {
 ~ String vehicleType
-~ Passenger hostes
-+ <<Create>> Aircraft(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>)
-+ <<Create>> Aircraft(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>,Passenger)
+~ Person hostes
++ <<Create>> Aircraft(String,String,String,String,String,int,int,String,Person,ArrayList<Person>)
++ <<Create>> Aircraft(String,String,String,String,String,int,int,String,Person,ArrayList<Person>,Person)
 ~ String pureDefinition()
++ String definition()
 }
 class ODEV01.Marine {
 ~ String vehicleType
-+ <<Create>> Marine(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>)
++ <<Create>> Marine(String,String,String,String,String,int,int,String,Person,ArrayList<Person>)
 ~ String pureDefinition()
++ String definition()
 }
-class ODEV01.GenericClass {
-- T t
-+ T get()
-+ void set(T)
-+ {static} boolean isEqual(GenericClass<T>,GenericClass<T>)
-}
-class ODEV01.Passenger {
+class ODEV01.Person {
 ~ String name
 ~ String surname
 ~ Boolean haveLicence
 ~ String licenceCapability
-+ <<Create>> Passenger()
-+ <<Create>> Passenger(String,String)
-+ <<Create>> Passenger(String,String,Boolean,String)
-~ <<Create>> Passenger(Passenger)
++ <<Create>> Person()
++ <<Create>> Person(String,String)
++ <<Create>> Person(String,String,Boolean,String)
+~ <<Create>> Person(Person)
 + String getName()
 + void setName(String)
 + String getSurname()
@@ -59,23 +56,33 @@ class ODEV01.Passenger {
 + String getLicenceCapability()
 + void setLicenceCapability(String)
 }
+class ODEV01.GenericClass<T> {
+- T t
++ T get()
++ void set(T)
++ {static} boolean isEqual(GenericClass<T>,GenericClass<T>)
+}
 class ODEV01.Motorcycle {
 ~ String vehicleType
 ~ int wheelCount
-+ <<Create>> Motorcycle(String,String,String,String,String,int,int,String,String,int,Passenger,ArrayList<Passenger>)
++ <<Create>> Motorcycle(String,String,String,String,String,int,int,String,String,int,Person,ArrayList<Person>)
 ~ String pureDefinition()
++ String definition()
 }
 class ODEV01.Main {
 ~ {static} ArrayList<Vehicle> vehicleList
-~ {static} ArrayList<Passenger> passengerList1
-~ {static} ArrayList<Passenger> passengerList2
-~ {static} ArrayList<Passenger> passengerList3
+~ {static} ArrayList<Person> personList1
+~ {static} ArrayList<Person> personList2
+~ {static} ArrayList<Person> personList3
 + {static} void main(String[])
 + {static} void fillLists()
 }
 class ODEV01.Commercial {
 ~ String carType
-+ <<Create>> Commercial(String,String,String,String,String,int,int,String,String,String,String,String,Passenger,ArrayList<Passenger>)
++ <<Create>> Commercial(String,String,String,String,String,int,int,String,String,String,String,String,Person,ArrayList<Person>)
+}
+interface ODEV01.VehicleFuncs {
+~ String definition()
 }
 abstract class ODEV01.Vehicle {
 ~ String type
@@ -87,23 +94,20 @@ abstract class ODEV01.Vehicle {
 ~ int enginePower
 ~ int engineCapacity
 ~ String fuelType
-~ Passenger driver
-~ ArrayList<Passenger> passengerList
-+ <<Create>> Vehicle(String,String,String,String,String,int,int,String,Passenger,ArrayList<Passenger>)
+~ Person driver
+~ ArrayList<Person> passengerList
++ <<Create>> Vehicle(String,String,String,String,String,int,int,String,Person,ArrayList<Person>)
 ~ {abstract}String pureDefinition()
 - String privateDefinition()
+~ String publicDefinition()
 + void setType(String)
 }
-interface ODEV01.Vehicle.VehicleFuncs {
-~ String definition()
-}
 
 
-ODEV01.VehicleFuncs <|.. ODEV01.Car
 ODEV01.Vehicle <|-- ODEV01.Car
 ODEV01.Vehicle <|-- ODEV01.Aircraft
 ODEV01.Vehicle <|-- ODEV01.Marine
 ODEV01.Vehicle <|-- ODEV01.Motorcycle
 ODEV01.Car <|-- ODEV01.Commercial
-ODEV01.Vehicle +.. ODEV01.Vehicle.VehicleFuncs
+ODEV01.VehicleFuncs <|.. ODEV01.Vehicle
 @enduml

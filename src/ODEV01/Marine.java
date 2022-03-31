@@ -15,14 +15,19 @@ public class Marine extends Vehicle {
     public Marine(
             String brand, String color, String model, String productionYear,
             String engineName, int enginePower, int engineCapacity, String fuelType,
-            Passenger driver, ArrayList<Passenger> passengerList
+            Person driver, ArrayList<Person> personList
     ) {
-        super(brand, color, model, productionYear, engineName, enginePower, engineCapacity, fuelType, driver, passengerList);
+        super(brand, color, model, productionYear, engineName, enginePower, engineCapacity, fuelType, driver, personList);
         this.setType(vehicleType);
     }
 
     @Override
     String pureDefinition() {
+        return null;
+    }
+
+    @Override
+    public String definition() {
         return null;
     }
 

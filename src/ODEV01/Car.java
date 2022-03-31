@@ -1,13 +1,12 @@
 package ODEV01;
 
-import java.sql.Driver;
 import java.util.*;
 
 /**
  * Created by Enes Kamil YILMAZ on 08/03/2022
  */
 
-public class Car extends Vehicle implements Vehicle.VehicleFuncs {
+public class Car extends Vehicle {
     //Otomobil: Arazi, Suv, Sedan, Hatchback, Cabrio, Station Wagon, Pick up
 
     String vehicleType = "Car";
@@ -21,9 +20,9 @@ public class Car extends Vehicle implements Vehicle.VehicleFuncs {
     public Car(
             String brand, String color, String model, String productionYear, String engineName, int enginePower,
             int engineCapacity, String fuelType, String vehicleType, String doorCount, String transmissionType,
-            String kilometer, Passenger driver, ArrayList<Passenger> passengerList
+            String kilometer, Person driver, ArrayList<Person> personList
     ) {
-        super(brand, color, model, productionYear, engineName, enginePower, engineCapacity, fuelType, driver, passengerList);
+        super(brand, color, model, productionYear, engineName, enginePower, engineCapacity, fuelType, driver, personList);
         this.setType(vehicleType);
         this.vehicleType = vehicleType; //this for disambiguation
         this.doorCount = doorCount;
@@ -52,9 +51,14 @@ public class Car extends Vehicle implements Vehicle.VehicleFuncs {
         return "Pure Car: brand: " + brand + ", model: " + model + ", year: " + productionYear;
     }
 
-    //@Override Can't override privateDefinition
+    //@Override //Can't override privateDefinition
     public String privateDefinition() {
         return "Can't override privateDefinition";
+    }
+
+    @Override
+    String publicDefinition() {
+        return super.publicDefinition();
     }
 
     public String getVehicleType() {

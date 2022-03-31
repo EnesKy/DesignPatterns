@@ -1,22 +1,22 @@
 package ODEV01;
 
-public class Passenger {
+public class Person {
 
     String name;
     String surname;
     Boolean haveLicence = false;
     String licenceCapability; //Car, Motocycle, Marine, Aircraft
 
-    public Passenger() {}
+    public Person() {}
 
-    public Passenger(String name, String surname) {
+    public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
         this.haveLicence = false;
     }
 
     //Compiler-generated default constructor
-    public Passenger(String name, String surname, Boolean haveLicence, String licenceCapability) {
+    public Person(String name, String surname, Boolean haveLicence, String licenceCapability) {
         this.name = name;
         this.surname = surname;
         this.haveLicence = haveLicence;
@@ -24,7 +24,7 @@ public class Passenger {
     }
 
     //Copy constructor
-    Passenger(Passenger p) {
+    Person(Person p) {
         name = p.name;
         surname = p.surname;
         haveLicence = p.haveLicence;

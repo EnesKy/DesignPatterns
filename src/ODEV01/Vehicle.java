@@ -6,7 +6,17 @@ import java.util.ArrayList;
  * Created by Enes Kamil YILMAZ on 08/03/2022
  */
 
-public abstract class Vehicle { //Vasıta
+interface VehicleFuncs { //virtual func
+    String definition();
+}
+
+public abstract class Vehicle implements VehicleFuncs { //Araç, Vasıta
+
+    private String privateDefinition() {
+        return "Private info";
+    }
+
+    abstract String pureDefinition(); //pure virtual func
 
     String type;
     String brand;
@@ -17,23 +27,17 @@ public abstract class Vehicle { //Vasıta
     int enginePower;
     int engineCapacity;
     String fuelType;
-    Passenger driver = new Passenger(); // Composition -> Zorunlu kullanım: Sürücü olmadan taşıt kullanılamaz.
-    ArrayList<Passenger> passengerList;
+    Person driver = new Person(); // Composition -> Zorunlu kullanım: Sürücü olmadan taşıt kullanılamaz.
+    ArrayList<Person> passengerList;
 
-    abstract String pureDefinition(); //pure virtual func
-
-    interface VehicleFuncs { //virtual func
-        String definition();
-    }
-
-    private String privateDefinition() {
-        return "Private info";
+    String publicDefinition() {
+        return "";
     }
 
     public Vehicle(
             String brand, String color, String model, String productionYear,
             String engineName, int enginePower, int engineCapacity, String fuelType,
-            Passenger driver, ArrayList<Passenger> passengerList
+            Person driver, ArrayList<Person> passengerList
     ) {
         this.brand = brand;
         this.color = color;
