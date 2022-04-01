@@ -1,4 +1,4 @@
-package ODEV01;
+package odev1.codes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +52,7 @@ class Main { //default access specifier for Class
 
     public static void main(String[]args) {
 
+        /*
         Person enes = new Person("Enes", "Yılmaz", true, "Car"); //instance of a class
         fillLists(enes);
 
@@ -69,6 +70,7 @@ class Main { //default access specifier for Class
         GenericClass type1 = new GenericClass();
         type1.set(true);
         type1.set(12687391);
+         */
 
     }
 

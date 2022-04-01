@@ -1,4 +1,4 @@
-package ODEV01;
+package odev1.codes;
 
 import java.util.*;
 
