@@ -10,7 +10,7 @@ public class Computer {
     }
 
     /**
-     * @return true if computer is in use
+     * @return Eğer bilgisayar kullanımda ise true döner.
      */
     public Boolean isOccupied() {
         return customer != null;

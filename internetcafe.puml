@@ -1,0 +1,42 @@
+@startuml
+class InternetCafe <<ObjectPool>> {
+- {static} InternetCafe instance
+- ArrayList<Computer> computerList
+- ArrayList<Customer> customerList
+- ArrayList<Customer> waitingList
+- int cafeCapacity
+- <<Create>> InternetCafe()
++ {static} InternetCafe getInstance()
++ Computer checkIn(Customer)
++ void checkOut(Customer)
+- Computer getAvailableComputer()
+- String getNewComputerID()
+- void report()
+}
+
+class Computer {
+~ String id
+~ Customer customer
++ <<Create>> Computer(String)
++ Boolean isOccupied()
++ void clearCustomer()
++ String toString()
+}
+
+class Customer {
+~ String name
++ <<Create>> Customer(String)
++ void run()
+- void safeSleep(int)
++ String toString()
+}
+
+Customer --|>  Thread : extends
+Customer - Computer : uses >
+InternetCafe - Computer : has >
+InternetCafe - Customer : has >
+
+note bottom of InternetCafe: Multi thread safe Singleton\nObjectPool Class
+note bottom of Computer: Very heavy class to \ninitiate every time
+
+@enduml

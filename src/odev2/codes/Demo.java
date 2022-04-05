@@ -6,6 +6,7 @@ public class Demo {
 
     public static void main(String[] args) {
 
+        //Müşteriler kapıda sıra olmaya başladılar.
         ArrayList<Customer> customers = new ArrayList<>();
         customers.add(new Customer("Customer 1"));
         customers.add(new Customer("Customer 2"));
@@ -23,6 +24,7 @@ public class Demo {
         customers.add(new Customer("Customer 14"));
         customers.add(new Customer("Customer 15"));
 
+        //Kapı açıldı. Müşteriler içeriye akın ediyor.
         for (var customer : customers)
             customer.start();
 
