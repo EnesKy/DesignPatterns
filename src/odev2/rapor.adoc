@@ -1,7 +1,8 @@
 = *Tasarım Örüntüleri Ödev 2: Object Pool*
 
 === -> Kurulan yapı:
-image:internetcafe.png[]
+
+image:puml/internetcafe.png[]
 
 === -> *Neden Object Pool, Singleton kullanılıyor?*
 

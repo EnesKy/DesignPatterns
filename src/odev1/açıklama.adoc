@@ -17,7 +17,7 @@ Motocycle(Motosiklet),
 Passenger(Yolcu)
 şeklindedir.
 
-image:vehicle_diagram.png[]
+image:puml/odev01.png[]
 
 Vehicle class'ı bu yapıdaki base class'tır.
 Car, Aircraft, Marine, Motocycle bunların hepsi bir taşıt, bir araçtır. Bu sebeple Vehicle'ı extend ederler.
